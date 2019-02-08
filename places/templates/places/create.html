@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} create | {{block.super}} {% endblock %}
+
+{% block content %}
+<div class="col" style="width: 700px;background: #F5F5F5;margin-top: 30px;padding: 20px">
+	<form method="POST"> {% csrf_token %}
+		<!-- {{form.errors}} -->
+
+		{{form.as_p}}
+		<button type="submit" class="btn btn-secondary">Submit</button>
+		<a href="/places" class="btn btn-secondary">Cancel</a>
+
+	</form>
+</div>
+{% endblock %}

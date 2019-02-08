@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Hotels | {{block.super}} {% endblock %}
+
+{% block content %}
+<div style="background: #F8F8FF;width: 600px;padding: 20px">
+	<h1><b>{{object.name}}</b> <small> {{object.city}}  <b style="background:#B8860B;color: white;padding: 3px"> {{object.star}} stars</b> </small></h1>
+
+	<p>   created: {{object.timestamp}}  updated: {{object.updated | timesince}} ago</p>
+	<br>
+	<pre> Bio : {{object.discription}}	
+	</pre>
+	<p> Tele-Phone : {{object.phone_number}}</p>
+	<p> <b  style="background: purple;color: white;padding: 10px">Price : {{object.price}} per week </b></p>
+	<p> City : {{object.city}}</p>
+	<p> District : {{object.district}}</p>
+	<p> Address : {{object.address}}</p>
+	<a href="/hotels" style="background: purple;color: white;padding:10px 30px;text-align: center"> Back </a>
+</div>
+{% endblock %}

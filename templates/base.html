@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> {% block title %} Tourism.lk {% endblock %} </title>
+	{% include 'snippits/css.html' %}
+</head>
+<body>
+
+	{% include 'snippits/nav.html' %}
+
+	<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm" style="width:300px;height: 600px;margin-top: 30px;margin-left: 10px">
+      <div class="row" style="background: #F5F5F5;height: 300px"> 
+          {% if user.is_authenticated %}
+
+          {% else %}
+            {% block login %} 
+
+            {% endblock %}
+          {% endif %}
+
+          
+      </div>
+      <div class="row" style="background: #F5F5F5;margin-top: 10px;height: 250px">vdv</div>
+    </div>
+    <div class="col-sm" align="center">
+      {% block content %}
+
+	    {% endblock %}
+    </div>
+    <div class="col-sm" style="width: 300px;height: 600px;margin-top: 30px;margin-right: 10px">
+      <div class="row" style="background: #F5F5F5;height: 200px"> fvd</div>
+      <div class="row" style="background: #F5F5F5;margin-top: 10px;height: 200px">vdv</div>
+      <div class="row" style="background: #F5F5F5;margin-top: 10px;height: 200px">df</div>
+
+    </div>
+  </div>
+</div>
+	
+
+	{% include 'snippits/js.html' %}
+</body>
+</html>

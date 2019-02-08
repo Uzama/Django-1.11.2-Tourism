@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %} Transport | {{block.super}}  {% endblock %}
+
+{% block content %}
+<div style="background: #F5F5F5;width: 700px;padding: 20px;margin-top: 30px">
+	<ul class="nav nav-tabs" id="myTab" role="tablist" >
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Private" role="tab" aria-controls="Private" aria-selected="true" style="color: purple">Private</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Train" role="tab" aria-controls="Train" aria-selected="false" style="color: purple">Train</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Bus" role="tab" aria-controls="Bus" aria-selected="false" style="color: purple">Bus</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#Uber" role="tab" aria-controls="Uber" aria-selected="false" style="color: purple">Uber</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#PickMe" role="tab" aria-controls="Pick" aria-selected="false" style="color: purple">Pick Me</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent" style="min-height: 550px;" > <br>
+  <div class="tab-pane fade show active" id="Private" role="tabpanel" aria-labelledby="home-tab">
+
+	  	{% include "transports/nav.html" %} <hr>
+		{% if object_list %}
+			<div style="overflow-x:scroll; height:500px;">
+
+			{% for i in object_list %}
+			<div class="row" style="background: white;width: 550;height: 120px;margin-top: 5px;padding: 5px">
+				<div  class="col-3" >
+					<div style="height: 110px;width: 90px;background: #DCDCDC;padding: 1px" align="center">
+					Photo
+					</div>
+				</div>
+				<div class="col-9" style="padding: 1px">
+					<div class="row" style="padding: 1px"> 
+						<p>
+					 <b><a href="/transports/{{i.slug}}" style="color: purple">{{i.name}}</a></b>  <small> {{i.location}}</small>   
+					 	</p>
+
+					</div><hr>
+					<div class="row" style="padding: 1px">
+						   <p>created: {{i.timestamp}}</p> 
+						   <p>updated: {{i.updated | timesince}} ago</p>
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+
+			</div>
+		{% else %}
+			<small>Not Found</small>
+
+		{% endif %}
+  </div>
+
+
+  <div class="tab-pane fade" id="Train" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  <div class="tab-pane fade" id="Bus" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  <div class="tab-pane fade" id="Uber" role="tabpanel" aria-labelledby="contact-tab">...</div>
+  <div class="tab-pane fade" id="PickMe" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>
+
+
+</div>
+{% endblock %}

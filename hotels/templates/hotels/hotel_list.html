@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Hotels | {{block.super}} {% endblock %}
+
+{% block content %}
+<div style="background: #F5F5F5;width: 700px;padding: 20px;min-height: 600px;margin-top: 30px">
+	{% include 'hotels/nav.html' %}
+	
+	<hr>
+	{% if object_list %}
+		<div style="overflow-x:scroll; height:500px;">
+
+		{% for i in object_list %}
+		<div class="row" style="background: white;width: 550;height: 120px;margin-top: 5px;padding: 5px">
+			<div  class="col-3" >
+				<div style="height: 110px;width: 90px;background: #DCDCDC;padding: 1px" align="center">
+				Photo
+				</div>
+			</div>
+			<div class="col-9" style="padding: 1px">
+				<div class="row" style="padding: 1px"> 
+					<p>
+				 <b><a href="/hotels/{{i.slug}}" style="color: purple">{{i.name}}</a></b>  <small> {{i.city}}</small>   <b style="background:#B8860B;color: white;padding: 1px;border-radius: 10%"> {{i.star}} stars</b>
+				 	</p>
+
+				</div><hr>
+				<div class="row" style="padding: 1px">
+					   <p>created: {{i.timestamp}}</p> 
+					   <p>updated: {{i.updated | timesince}} ago</p>
+				</div>
+			</div>
+		</div>
+
+		{% endfor %}
+
+		</div>
+	{% else %}
+		<small>Not Found</small>
+
+	{% endif %}
+
+</div>
+
+{% endblock %}

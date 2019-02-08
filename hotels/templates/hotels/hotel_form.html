@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} create-hotel | {{block.super}} {% endblock %}
+
+{% block content %}
+
+<div style="background: #F8F8FF;padding: 20px;width: 510px;margin-top: 20px">
+
+	<form method="POST"> {% csrf_token %}
+		
+		{{form.as_p}}
+		<button type="submit" class="btn btn-secondary">Submit</button>
+		<a href="/hotels" class="btn btn-secondary" >Cancel</a>
+	</form>
+</div>
+
+{% endblock %}

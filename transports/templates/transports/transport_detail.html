@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Transport | {{block.super}} {% endblock %}
+
+{% block content %}
+<div style="background: #F8F8FF;width: 600px;padding: 20px">
+	<h1><b>{{object.name}}</b> <small> {{object.vehicle}} </small></h1>
+
+	<p>   created: {{object.timestamp}}  updated: {{object.updated | timesince}} ago</p>
+	<br>
+	<p> <b  style="background: purple;color: white;padding: 10px">Price : {{object.price}} per KM</b></p>
+	<p> Vehicle : {{object.vehicle}}</p>
+	<p> Capecity : {{object.capcity}}</p>
+	<p> Tele-Phone : {{object.phone}}</p>
+	<a href="/transports" style="background: purple;color: white;padding:10px 30px;text-align: center"> Back </a>
+</div>
+{% endblock %}

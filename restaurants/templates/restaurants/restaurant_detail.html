@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Restaurant | {{block.super}} {% endblock %}
+
+{% block content %}
+<div style="background: #F8F8FF;width: 700px;padding: 20px">
+	<h1><b>{{object.name}}</b> <small> {{object.location}} </small></h1>
+
+	<p>   created: {{object.timestamp}}  updated: {{object.updated | timesince}} ago</p>
+	<br>
+	<pre> Bio : {{object.bio}}	
+	</pre>
+	<p> <b  style="background: purple;color: white;padding: 10px">Category : {{object.category}}</b></p>
+	<p> City : {{object.location}}</p>
+	<p> District : {{object.district}}</p>
+	<p> Tele-Phone : {{object.phone}}</p>
+	<a href="/restaurants" style="background: purple;color: white;padding:10px 30px;text-align: center"> Back </a>
+</div>
+{% endblock %}

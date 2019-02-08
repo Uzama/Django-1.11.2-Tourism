@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <b><a class="navbar-brand" href="/hotels" style="color: purple;font-size: 15px">Restaurant |</a></b>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/hotels/create" style="background: purple;color: white;border-radius: 10%"><small>Create</small> <span class="sr-only">(current)</span></a>
+      </li>
+    </ul> -->
+    <form class="form-inline my-2 my-lg-0" method="POST" style="vertical-align: center"> {% csrf_token %}
+      <select class="custom-select" style="border-radius: 10%;border-color: purple;width: 114px;margin-right: 3px" name="order">
+          <option selected value="ascending">ascending</option>
+          <option value="descending">descending</option>
+      </select>
+      <select class="custom-select" style="border-radius: 10%;border-color: purple;width: 100px;margin-right: 3px" name="sort_by">
+          <option selected value="updated">updated</option>
+          <option value="timestamp">created</option>
+          <option value="name">name</option>
+          <option value="location">location</option>
+      </select>
+      <select class="custom-select" style="border-color: purple;margin-right: 3px;width: 80px;" name="filter_by">
+        <option selected value="name">name</option>
+        <option value="location">location</option>
+        <option value="district">district</option>
+        <option value="category">category</option>
+      </select>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="border-color: purple;width: 143px" name="search" required="csrf_token">
+      <!-- {{form.as_p}} -->
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background: purple;color: white;border-color: purple;margin-left: 2px;padding:6px 5px">Search</button>
+      <br>
+      
+    </form>
+  </div>
+</nav>
